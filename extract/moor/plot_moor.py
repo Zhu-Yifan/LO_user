@@ -1,6 +1,8 @@
 """
 Generic code to plot any mooring extraction
 """
+# modified by yifan 10/3/2023
+
 from lo_tools import Lfun, zfun
 from lo_tools import plotting_functions as pfun
 
@@ -41,28 +43,28 @@ for vn in ds.data_vars:
     print('%s %s' % (vn, ds[vn].shape))
     VN_list.append(vn)
     
-# populate lists of variables to plot
-vn2_list = ['zeta']
-if 'Pair' in VN_list:
-    vn2_list += ['shflux', 'swrad']
-if 'ubar' in VN_list:
-    vn2_list += ['ubar', 'vbar']
+# populate lists of variables to plot (I blocked some variables, as I focus on Carbon and nutrients)
+#vn2_list = ['zeta']
+# if 'Pair' in VN_list:
+#     vn2_list += ['shflux', 'swrad']
+# if 'ubar' in VN_list:
+#     vn2_list += ['ubar', 'vbar']
 vn3_list = []
 if 'salt' in VN_list:
     vn3_list += ['salt', 'temp']
 if 'NO3' in VN_list:
-    vn3_list += ['oxygen','NO3']
+    vn3_list += ['oxygen','NO3','TIC','alkalinity']
 # if 'u' in VN_list:
 #     vn3_list += ['u', 'v']
 
 # drop missing variables
-vn2_list = [item for item in vn2_list if item in ds.data_vars]
+# vn2_list = [item for item in vn2_list if item in ds.data_vars]
 vn3_list = [item for item in vn3_list if item in ds.data_vars]
 
 # plot time series using a pandas DataFrame
 df = pd.DataFrame(index=ot)
-for vn in vn2_list:
-    df[vn] = ds[vn].values
+# for vn in vn2_list:
+#     df[vn] = ds[vn].values
 for vn in vn3_list:
     df[vn] = ds[vn][:, -1]
     #df[vn] = zfun.lowpass(ds[vn][:, -1].values, f='godin')
