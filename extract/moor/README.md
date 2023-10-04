@@ -17,7 +17,16 @@ Note that because of how xarray handles the time axis, it converts **ocean_time*
 See the codes for details on the required command line arguments. Basically you need to tell it which run to use, and the time limits and frequency. For `extract_moor.py` you also pass a station name, longitude, and latitude, whereas for `multi_mooring_driver.py` you instead pass a job name.
 
 ---
+#### Feedbacks
 
+(1) `extract_moor.py`
+
+
+* Problem: during the exercise of extracting two desired mooring sites (DABOB) and (TWANOH) from the LO model fields. The script returned none data.
+* Cause: these two sites are close to shore, and not recognized as oceanic sites in model grid.
+* Solve: run the related grid.nc, pcolor the "mask_rho", zoom into Hood Canal and pick (manually) the closest grid cell, write down the index, find the corresponding lon and lat, and re-run the extract_moor.py.
+
+---
 #### Plotting
 
 `plot_moor.py` is a generic plotting tool for a user-selected mooring extraction.
