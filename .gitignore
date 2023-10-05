@@ -1,6 +1,6 @@
 __pycache__/
 .idea/
 .git/
-
+LICENSE
 # Jupyter Notebook
 .ipynb_checkpoints
