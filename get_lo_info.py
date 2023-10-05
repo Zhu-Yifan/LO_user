@@ -19,7 +19,8 @@ parent = Path(__file__).absolute().parent.parent
 LO = parent / 'LO'
 LOo = parent / 'LO_output'
 LOu = parent / 'LO_user'
-data = parent / 'LO_data'
+#data = parent / 'LO_data'
+data = Path('/e1/fsoares/LiveOcean/LO_data')
 
 # This is where the ROMS source code, makefiles, and executables are
 roms_code = parent / 'LiveOcean_roms'
