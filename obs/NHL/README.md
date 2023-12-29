@@ -11,6 +11,10 @@
   - bottle None
   - ctd 1997-2021. Missing oxygen data between 1997-July 1998.
 
+<p align="center">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/NHL/plot/NewPort_Hydrography_Line.png" alt="Figure 1. NewPort Hydrography Line, showing sampling frequency)">
+</p>
+
 Reference:
 
 - Risien C.M., M.R. Fewings, J.L. Fisher, J.O. Peterson, and C.A. Morgan (2022). Spatially gridded cross-shelf hydrographic sections and monthly climatologies from shipboard survey data collected along the Newport Hydrographic Line, 1997–2021. Data in Brief, DOI: 10.1016/j.dib.2022.107922.
