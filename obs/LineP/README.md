@@ -1,4 +1,4 @@
-## README for LineP
+## README for Line P
 
 #### This folder contain specific codes for processing Program Line_P bottle and CTD data in coastal Canadian waters off Vancouver island
 
@@ -6,7 +6,7 @@
 
 #### Source
 
-- **Line_P** Historic Data collected three times a year at Line P off coastal Canadian waters off Vancouver island.
+- **Line P** Historic Data collected three times a year at Line P off coastal Canadian waters off Vancouver island.
 - Data are publicly available at https://www.dfo-mpo.gc.ca/science/data-donnees/line-p/data-eng.html.   NOTE: available 1956-2007 
 - the 2nd method to download data is through: https://www.waterproperties.ca/linep/index.php, but you need to register first and manualy download year by year.   NOTE: available 1956-2023 
 - the 3rd method to download complied bottle data is through NCEI (Recommanded): https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0234342.html.   NOTE: available 1990-2019
