@@ -12,8 +12,9 @@
   - ctd 1997-2021. Missing oxygen data between 1997-July 1998.
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/NHL/plot/NewPort_Hydrography_Line.png" alt="Figure 1. NewPort Hydrography Line, showing sampling frequency)">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/NHL/plot/NewPort_Hydrography_Line.png" alt="Figure 1. NewPort Hydrography Line, showing sampling frequency" width="250" height="400">
 </p>
+
 
 Reference:
 
