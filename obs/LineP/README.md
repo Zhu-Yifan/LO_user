@@ -1,18 +1,18 @@
 ## README for LineP
 
-#### This folder contain two specific codes for processing Program Line_P in coastal Canadian waters off Vancouver island
+#### This folder contain specific codes for processing Program Line_P bottle and CTD data in coastal Canadian waters off Vancouver island
 
 ---
 
 #### Source
 
 - **Line_P** Historic Data collected three times a year at Line P off coastal Canadian waters off Vancouver island. Data from 1956-2007 are publicly available at https://www.dfo-mpo.gc.ca/science/data-donnees/line-p/data-eng.html 
-- the 2nd method is to download from https://www.waterproperties.ca/linep/index.php where you can download 1956-2023, but you need to register first
+- the 2nd method to download data from 1956-2023 is through: https://www.waterproperties.ca/linep/index.php, but you need to register first
   - bottle yes
   - ctd 1956-2023.
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/NHL/plot/NewPort_Hydrography_Line.png" alt="Figure 1. NewPort Hydrography Line, showing sampling frequency)">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/LineP/plot/Line_P.gif" alt="Figure 1. Line_P)">
 </p>
 
 Reference:
