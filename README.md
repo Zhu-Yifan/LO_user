@@ -2,5 +2,5 @@
 
 ## Introduction
 
-The LO_user repository contains resources and (modified) codes related to [LiveOcean](https://faculty.washington.edu/pmacc/LO/LiveOcean.html) model fields analysis. It is greatly referred to and benefited from the [LO](https://github.com/parkermac/LO) github repository released by [Dr. Parker MacCready](https://faculty.washington.edu/pmacc/) at UW. 
+The LO_user repo contains resources and (modified) codes related to [LiveOcean](https://faculty.washington.edu/pmacc/LO/LiveOcean.html) model validation and output analysis. It is referred to and greatly benefited from the [LO](https://github.com/parkermac/LO) github repo released by [Prof. Parker MacCready](https://faculty.washington.edu/pmacc/) at Univeristy of Washington. 
 
