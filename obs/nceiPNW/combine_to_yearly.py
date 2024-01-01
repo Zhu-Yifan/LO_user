@@ -102,6 +102,7 @@ for year in year_list:
         cruise = False
         time = False
         date = False
+        sal = False
         if year ==2001:
             skiprows = [0]
             date = True
@@ -113,8 +114,10 @@ for year in year_list:
             drop_last_row = False
         elif year == 2010:
             skiprows = range(0, 21)
+            sal = True
         elif year == 2014:
             skiprows = range(0, 7)
+            sal = True
         elif year == 2013 or year ==2015 or year == 2016 or year ==2017:
             drop_last_row = False
             time = True
@@ -133,6 +136,8 @@ for year in year_list:
             df['DATE'] = df['DATE'].dt.strftime('%Y%m%d')
         if cruise:
             df['SECT'] = 'Line P'
+        if sal:
+            df['CTDSAL'] = df['SALNTY']
         datetime_str = df['DATE'] + ' ' + df['TIME'].str.zfill(4)
 
         if time:
