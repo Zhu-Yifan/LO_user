@@ -44,6 +44,8 @@ for year in year_list:
     for name in df.name.unique():
         df.loc[df.name==name,'lon'] = df[df.name==name].lon.values[0]
         df.loc[df.name==name,'lat'] = df[df.name==name].lat.values[0]
+    # limit Strait of Georgia
+    df = df[~((df.lon > -126) & (df.lat > 49))]
 
     # Next make derived quantities and do unit conversions
     # (1) Create CT, SA, and z
