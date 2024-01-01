@@ -120,11 +120,6 @@ for year in year_list:
         df.loc[df.name==name,'lon'] = df[df.name==name].lon.values[0]
         df.loc[df.name==name,'lat'] = df[df.name==name].lat.values[0]
 
-    # Each cast is associated with a different time (hh:mm), now assign arbitrary cid based on this
-    unique = df.time.unique()
-    ind = {time: cid for time, cid in zip(unique, range(len(unique)))}
-    df['cid'] = df['time'].map(ind)
-
     # Next make derived quantities and do unit conversions
     # (1) Create CT, SA, and z
     # - pull out variables
