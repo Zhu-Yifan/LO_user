@@ -7,13 +7,20 @@
 #### Source
 
 - **Line P** Historic Data collected three times a year at Line P off coastal Canadian waters off Vancouver island.
-- Data are publicly available at https://www.dfo-mpo.gc.ca/science/data-donnees/line-p/data-eng.html.   NOTE: available 1956-2007 
-- the 2nd method to download data is through: https://www.waterproperties.ca/linep/index.php, but you need to register first and manualy download year by year.   NOTE: available 1956-2023 
-- the 3rd method to download complied bottle data is through NCEI (Recommanded): https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0234342.html.   NOTE: available 1990-2019
-
+- Data are publicly available at https://www.dfo-mpo.gc.ca/science/data-donnees/line-p/data-eng.html.  NOTE: NOT complied
+  
+  - ctd 1956-2007
+  - bottle 1956-2007
+    
+- the 2nd method to download data is through: https://www.waterproperties.ca/linep/index.php. NOTE: you need to register first and manualy download year by year. It's NOT complied.
+  
+  - ctd 1956-2023
+  - bottle 1956-2023
+     
+- the 3rd method to download complied bottle data is through NCEI (Recommanded): https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0234342.html.   NOTE: complied
   
   - bottle 1990-2019
-  - ctd 1956-2023.
+  
 
 <p align="center">
   <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/LineP/plot/Line_P.gif" alt="Figure 1. Line_P)">
