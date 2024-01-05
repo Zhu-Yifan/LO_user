@@ -7,7 +7,7 @@
 #### Source
 
 - **WOD** Historic Data collected in Pacific North West.
-- Data are publicly available at https://www.ncei.noaa.gov/products/world-ocean-database.  NOTE: I downloaded from the standard depths in .nc file year by year
+- Data are publicly available at https://www.ncei.noaa.gov/products/world-ocean-database.  NOTE: I downloaded from the standard depths in **.nc** file year by year
   
   - ctd 
   - bottle 
