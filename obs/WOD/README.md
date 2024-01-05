@@ -14,7 +14,7 @@
  
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/WOD/plot/ocldb1703191387.27250.jpg" alt="Figure 1. WOD)">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/WOD/plot/ocldb1703191387.27250.jpg" alt="Figure 1. WOD)" width="350" height="400">
 </p>
 
 Reference:
