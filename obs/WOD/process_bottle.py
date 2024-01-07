@@ -167,6 +167,7 @@ for year in year_list:
     # - add the results to the DataFrame
     df['SA'] = SA
     df['CT'] = CT
+    df['z'] = -1 * df['z']
     rho = gsw.rho(SA,CT,p)
 
     # (2) units
