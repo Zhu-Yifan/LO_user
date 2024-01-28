@@ -13,7 +13,7 @@
   - ctd none
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/nceiSalish/plot/Salish_Sea.png" alt="Figure 1. Salish Sea, showing sampling station" width="500" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/nceiSalish/plot/Salish_Sea.jpg" alt="Figure 1. Salish Sea, showing sampling station" width="500" height="400">
 </p>
 
 
