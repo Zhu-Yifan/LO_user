@@ -1,7 +1,7 @@
 ## README for NHL
 
 #### This folder contain code for processing Salish Sea data since 2008-2018 
-* note: the puget sound resion is masked
+* note: the puget sound region is masked
 
 ---
 
