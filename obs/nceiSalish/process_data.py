@@ -142,7 +142,7 @@ for year in year_list:
         df.loc[df.cid==cid,'lat'] = df[df.cid==cid].lat.values[0]
         df.loc[df.cid==cid,'time'] = df[df.cid==cid].time.values[0]
     # mask puget sound
-    df = df[~((df.lon > -123) & (df.lat < 47.75))]
+    #df = df[~((df.lon > -123) & (df.lat < 47.75))]
     # Next make derived quantities and do unit conversions
 
     # (1) Create CT, SA, and z
