@@ -1,6 +1,7 @@
 """
-Code to process WOD (World Ocean Database)bottle data from the NetCDF version, for years (1993-2006)
-
+Code to process WOD (World Ocean Database) bottle data from the NetCDF version, for years (1993-2018)
+year 2011-2013 doesn't have bottle data within the model domain
+year 2015-2018 doesn't have bottle data within the model domain either
 """
 from datetime import datetime, timedelta
 import numpy as np
@@ -105,12 +106,12 @@ otype = 'bottle'
 out_dir = Ldir['LOo'] / 'obs' / source / otype
 Lfun.make_dir(out_dir)
 
-testing = True
+testing = False
 
 if testing:
     year_list = [1999]
 else:
-    year_list = range(1993,2007)
+    year_list = list(range(1993, 2010+1)) + [2014]
 
 # input location
 for year in year_list:
