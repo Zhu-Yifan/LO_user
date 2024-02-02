@@ -1,9 +1,15 @@
 """
-Code to process the Line P complied bottle data to pickle files.
+Code to process the Line P complied bottle data to pickle files for year 1999-2019
 The data range from year 1990-2019.
+However,
+the complied dataset doesn't have consistent columns for CTD temp, salinity
+
+During this period "CTDTMP_ITS90_DEG_C", "CTDSAL_PSS78", and "CTDPRS_DBAR" are used for gsw to convert units
+
+Notes:
+- year 2000 doesn't have P4, nor P12
 
 """
-
 
 import pandas as pd
 import numpy as np
@@ -13,24 +19,7 @@ import sys
 from lo_tools import Lfun, obs_functions
 Ldir = Lfun.Lstart()
 
-# BOTTLE
-source = 'LineP'
-otype = 'bottle'
-in_dir0 = Ldir['data'] / 'obs' / source / otype
-
-testing = True
-
-if testing:
-    year_list = [2017]
-else:
-    year_list = range(1998,2019+1)
-    # only 1998-2019 has v_dict as below, years before 1998 is different please use the other .py file
-
-# output location
-out_dir = Ldir['LOo'] / 'obs' / source / otype
-Lfun.make_dir(out_dir)
-
-# This is a dict of all the columns in the datafile.
+# This is a dict of all the columns after the initial reading.
 # We add values to a key for any variable we want to save. I looked
 # at units_dict (created below) to be sure about the units.
 v_dict = {
@@ -70,6 +59,22 @@ v_dict = {
     'original_filename':'',
 }
 
+# BOTTLE
+source = 'LineP'
+otype = 'bottle'
+in_dir0 = Ldir['data'] / 'obs' / source / otype
+
+testing = True
+
+if testing:
+    year_list = [1999]
+else:
+    year_list = list(range(1999, 2008+1)) + [2010] + list(range(2014, 2019+1))
+
+# output location
+out_dir = Ldir['LOo'] / 'obs' / source / otype
+Lfun.make_dir(out_dir)
+
 
 load_data = True
 for year in year_list:
@@ -86,10 +91,11 @@ for year in year_list:
         there are two rows have bad data, which is row 700, and 724, omit these 
         """
         df0 = pd.read_csv(in_fn, low_memory=False,
-                          parse_dates={'time':['YEAR_UTC','MONTH_UTC','DAY_UTC','TIME_UTC']})
+                          parse_dates={'time':['YEAR_UTC','MONTH_UTC','DAY_UTC','TIME_UTC']},
+                          usecols= list(range(33)))
         df0 = df0.drop([699, 723])
         df0 = df0.reset_index(drop=True)
-
+        df0['time'] = pd.to_datetime(df0['time'], format='ISO8601')
         load_data = False # only load the first time
         # select one year
     t = pd.DatetimeIndex(df0.time)
@@ -110,15 +116,25 @@ for year in year_list:
     df = df[df.time.notna()] # drop rows with bad time
     df = df.reset_index(drop=True)
 
-    # Line P goes way beyond the model domain, now limit the geographical region to the model domain
-    # most of the time only P4 is with the domain
-    df = df[(df.lon>-130) & (df.lon<-122) & (df.lat>42) & (df.lat<52)]
+    """
+    Line P goes way beyond the model domain, now limit the geographical region to the model domain, 
+    most of the time only P4 is with the domain,
+    but P12 is at the edge of the model domain, -130.67 
+    So, include this station because we can use it to test the boundary condition
+    """
+
+    df = df[(df.lon>-131) & (df.lon<-122) & (df.lat>42) & (df.lat<52)]
 
     # This dataset doesn't have unique numbers for each cast, if same stations,
     # force lat and lon to be consistent throughout the given year
     for name in df.name.unique():
         df.loc[df.name==name,'lon'] = df[df.name==name].lon.values[0]
         df.loc[df.name==name,'lat'] = df[df.name==name].lat.values[0]
+
+    # Each cast is associated with a different time (hh:mm), now assign arbitrary cid based on this
+    unique = df.time.unique()
+    ind = {time: cid for time, cid in zip(unique, range(len(unique)))}
+    df['cid'] = df['time'].map(ind)
 
     # Next make derived quantities and do unit conversions
     # (1) Create CT, SA, and z
