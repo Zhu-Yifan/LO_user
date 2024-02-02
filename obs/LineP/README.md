@@ -30,5 +30,7 @@ Reference:
 
 - Franco, Ana C.; Ianson, Debby; Ross, Tetjana; Hamme, Roberta C.; Monahan, Adam H.; Christian, James R.; Davelaar, Marty; Johnson, William K.; Miller, Lisa A.; Robert, Marie; Tortell, Philippe D. (2021). A compilation of inorganic carbon system and other hydrographic and chemical discrete profile measurements obtained during the fifty five Line P cruises in the Northeast Pacific Ocean over the period from 1990 to 2019 (NCEI Accession 0234342). NOAA National Centers for Environmental Information. Dataset. https://doi.org/10.25921/zrw8-kn24. Accessed 2023-12-30.
 
+- Franco, A. C., Ianson, D., Ross, T., Hamme, R. C., Monahan, A. H., Christian, J. R., et al. (2021). Anthropogenic and climatic contributions to observed carbon system trends in the northeast Pacific. Global Biogeochemical Cycles, 35, e2020GB006829. https://doi.org/10.1029/2020GB006829
+
 ---
 
