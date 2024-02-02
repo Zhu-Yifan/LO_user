@@ -21,6 +21,8 @@
 Reference:
 
 - Alin, Simone R.; Newton, Jan; Greeley, Dana; Curry, Beth; Herndon, Julian; Kozyr, Alex; Feely, Richard A. (2021). A compiled data product of profile, discrete biogeochemical measurements from 35 individual cruise datasets collected from a variety of ships in the southern Salish Sea and northern California Current System (Washington state marine waters) from 2008-02-04 to 2018-10-19 (NCEI Accession 0238424). NOAA National Centers for Environmental Information. Dataset. https://doi.org/10.25921/zgk5-ep63. Accessed 2014-01-27.
+  
+- Alin, S. R., Newton, J. A., Feely, R. A., Greeley, D., Curry, B., Herndon, J., & Warner, M. (2023). A decade-long cruise time-series (2008–2018) of physical and biogeochemical conditions in the southern Salish Sea, North America. Earth System Science Data Discussions, 1–37. https://doi.org/10.5194/essd-2023-239
 
 ---
 
