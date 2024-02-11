@@ -182,7 +182,7 @@ for year in year_list:
             'LOC:STATION':'Station',
             'INS:LOCATION':'',
             'Pressure:CTD [dbar]':'Pressure [dbar]',
-            'Temperature:CTD [deg_C_(ITS90)]':'Temperature]',
+            'Temperature:CTD [deg_C_(ITS90)]':'Temperature',
             'Salinity:CTD [PSS-78]':'Salinity',
             'Sigma-t:CTD [kg/m^3]':'Sigma-t [kg/m^3]',
             'Transmissivity:CTD:650 [*/m]':'',
