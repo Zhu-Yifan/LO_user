@@ -9,19 +9,20 @@
 - **Line P** Historic Data collected three times a year at Line P off coastal Canadian waters off Vancouver island.
 - Data are publicly available at https://www.dfo-mpo.gc.ca/science/data-donnees/line-p/data-eng.html.  NOTE: NOT complied
   
-  - ctd 1956-2007
-  - bottle 1956-2007
+  - ctd: 1956-2007
+  - bottle: 1956-2007
     
 - the 2nd method to download data is through: https://www.waterproperties.ca/linep/index.php. NOTE: you need to register first and manualy download year by year. It's NOT complied.
   
-  - ctd 1956-2023
-  - bottle 1956-2023
-    
-**NOTE**: bottle data downloaded from the first two methods only contain nutrients **(e.g., N, P, Si)**. If you want to have CARBON varibales **(e.g., DIC, TA)**, use the **3rd** method below 
+  - ctd: 1956-2023 
+  - bottle: 1956-2023
+  - NOTE: **CTD_oxygen** data was missing before year 2004; **bottle** data from the first two methods only contain nutrients **(e.g., N, P, Si)**. If you want to have CARBON varibales **(e.g., DIC, TA)**, try the **3rd** method below
+
 
 - the 3rd method to download compiled bottle data is through NCEI (Recommanded): https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0234342.html.   NOTE: compiled
   
-  - bottle 1990-2019
+  - ctd: None
+  - bottle: 1990-2019
   
 
 <p align="center">
