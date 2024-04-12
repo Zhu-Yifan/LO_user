@@ -45,9 +45,12 @@ except KeyError:
 # print('HOME = ' + str(HOME))
 # print('HOSTNAME = ' + HOSTNAME)
 
+if str(HOME) == '/home/yifan':
+    lo_env = 'yz_pc'
+
 
 Ldir0 = dict()
-
+Ldir0['lo_env'] = lo_env
 Ldir0['parent'] = parent
 Ldir0['LO'] = LO
 Ldir0['LOo'] = LOo
