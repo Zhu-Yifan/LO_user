@@ -1,22 +1,21 @@
 ## README for OCNMS
 
-#### This folder contains specific codes for Code to process the CTD data collected from Olympic coast national marine
-sanctuary (OCNMS), WA. since 2004-2023 
+#### This folder contains specific codes to process two separate CTD datasets collected from Olympic Coast National Marine Sanctuary (OCNMS), WA, since 2004-2023 
 ---
 
 #### Source
-- **OCNMS_ctd_01** Historic Cruise Data collected at Washington shelf waters used for their mooring data quality control. Data are publicly available at https://zenodo.org/records/10466124 (Select "Olympic_Coast_National_Marine_Sanctuary_CTD_Data_2005_2023.zip" and then select Download)
+- **OCNMS_ctd_01** Historic Cruise Data collected at Washington shelf waters used for mooring data quality control. Data are publicly available at https://zenodo.org/records/10466124 (Select "Olympic_Coast_National_Marine_Sanctuary_CTD_Data_2005_2023.zip" and then select Download)
   
   - bottle None
-  - ctd 2005-2023. Contains DO data.
+  - ctd 2005-2023, contains DO data.
 
-- **OCNMS_ctd_02** Historic Cruise Data collected at the OCNMS region, including but not limited to mooring sites. Data will be publicly available soon (will update)
+- **OCNMS_ctd_02** Historic Cruise Data collected at the OCNMS region, including but not limited to mooring sites. Data will be publicly available soon
 
   - bottle None
-  - ctd 2004-2015. Contains DO data.
+  - ctd 2004-2015, contains DO data.
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/OCNMS/plot/OCNMS_mooring_map.jpg" alt="Figure 1. OCNMS, showing mooring sites" width="300" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/OCNMS/plot/OCNMS_mooring_map.jpg" alt="Figure 1. OCNMS, showing mooring sites" width="350" height="450">
 </p>
 
 
