@@ -8,17 +8,20 @@
   
   - bottle None
   - ctd 2005-2023, contains DO data.
+ 
+<p align="center">
+<img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/OCNMS/plot/OCNMS_mooring_map.jpg" alt="Figure 1. OCNMS, showing mooring sites" width="350" height="450">
 
 - **OCNMS_ctd_02** Historic Cruise Data collected at the OCNMS region, including but not limited to mooring sites. Data are publicly available at https://zenodo.org/records/11167853 (Select "Olympic_Coast_National_Marine_Sanctuary_Hypoxia_Survey_CTD_Data_2004_2015.zip" and then download)
 
   - bottle None
   - ctd 2004-2015, contains DO data.
 
-<p align="left">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/OCNMS/plot/OCNMS_mooring_map.jpg" alt="Figure 1. OCNMS, showing mooring sites" width="350" height="450">
-  
-</p>
 
+<p align="center">
+<img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/OCNMS/plot/map-ctd02.png" alt="Figure 2. OCNMS, showing cruise sampling stations" width="350" height="450">  
+
+</p>
 
 Reference:
 
