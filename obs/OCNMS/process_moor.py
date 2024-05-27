@@ -1,7 +1,7 @@
 """
 Code to process the OCNMS mooring data from 2000-2023 compiled by Craig Risen at OSU in matlab format
 This script only extracts bottom package: CTD+DO, with sampling frequency ~10 mins
-This exports data from each mooring site as a netcdf.
+This exports hourly data as a netcdf at each mooring site.
 
 Takes 20 seconds to run
 """
@@ -15,14 +15,13 @@ from datetime import datetime, timedelta
 from time import time as Time
 
 from lo_tools import Lfun
-
 Ldir = Lfun.Lstart()
 
-# input location
+
 source = 'OCNMS'
 otype = 'moor'
+# input location
 in_dir = Ldir['data'] / 'obs' / source / otype
-
 # output location
 out_dir = Ldir['LOo'] / 'obs' / source / otype
 
@@ -51,22 +50,17 @@ sn_loc_dict = {
     'CA042': [-124.8234, 48.1660],
     'CA065': [-124.8949, 48.1659],
     'CA100': [-124.9319, 48.1658],
-
     'CE015': [-124.3481, 47.3568],
     'CE042': [-124.4887, 47.3531],
     'CE065': [-124.5669, 47.3528],
-
     'KL015': [-124.4284, 47.6008],
     'KL027': [-124.4971, 47.5946],
     'KL050': [-124.6112, 47.5933],
-
     'MB015': [-124.6768, 48.3254],
     'MB042': [-124.7354, 48.3240],
-
     'TH015': [-124.6195, 47.8761],
     'TH042': [-124.7334, 47.8762],
     'TH065': [-124.7967, 47.8767]
-
 }
 
 v_dict = {
@@ -88,8 +82,6 @@ v_dict = {
 
 in_fn = in_dir / 'OCNMSMooringDataBySite_2000_2023.mat.filepart'
 moor_dict = loadmat(in_fn)
-
-
 # print(moor_dict.keys())
 
 # function to covert matlab datenum to datetime
@@ -98,16 +90,15 @@ def matlab_to_datetime(matlab_datenum):
     fractional_days = matlab_datenum % 1
     return datetime.fromordinal(int(days)) + timedelta(days=fractional_days)
 
-
 tt0 = Time()
 for sn in moor_dict.keys():
     if sn in sn_name_dict.keys():
         print(sn)
         out_fn = out_dir / (sn + '_2000_2023_hourly.nc')
+        print(out_fn)
         moor_data = moor_dict[sn][0]
         df0 = {}
         df = pd.DataFrame()
-        # df1 = pd.DataFrame()
         field_list = moor_data.dtype.names
         for field in field_list:
             # print(field)
@@ -116,7 +107,6 @@ for sn in moor_dict.keys():
                 CTPO = moor_data[field][0]
                 vn_list = CTPO.dtype.names
                 # print(vn_list)
-
                 for v in vn_list:
                     # print(v)
                     if v in v_dict.keys():
@@ -135,7 +125,7 @@ for sn in moor_dict.keys():
 
                 df = df.dropna(axis=0, how='all')
                 df = df.reset_index(drop=True)
-                # (1) Create CT, SA, and z
+                # (1) Create CT, SA, and z, lat, lon
                 # - pull out variables
                 SP = df.SP.to_numpy()
                 IT = df.IT.to_numpy()
@@ -153,7 +143,7 @@ for sn in moor_dict.keys():
                 df['CT'] = CT
                 z = z * -1
                 df['z'] = z
-                # - do the conversions
+                # - do the conversions for unit and datetime
                 df['DO (uM)'] = df['oxy_mg'] * 1000 / 32
                 df['time'] = df['matlab_time'].apply(matlab_to_datetime)
                 # Keep only selected columns.
@@ -170,6 +160,5 @@ for sn in moor_dict.keys():
                 df1 = df1[column_order]
                 ds = xr.Dataset.from_dataframe(df1)
                 ds.to_netcdf(out_fn)
-                print(out_fn)
 
 print('Total time = %d sec' % (int(Time() - tt0)))
