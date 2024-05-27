@@ -95,10 +95,10 @@ for sn in moor_dict.keys():
     if sn in sn_name_dict.keys():
         print(sn)
         out_fn = out_dir / (sn + '_2000_2023_hourly.nc')
-        print(out_fn)
         moor_data = moor_dict[sn][0]
         df0 = {}
         df = pd.DataFrame()
+        # df1 = pd.DataFrame()
         field_list = moor_data.dtype.names
         for field in field_list:
             # print(field)
@@ -107,6 +107,7 @@ for sn in moor_dict.keys():
                 CTPO = moor_data[field][0]
                 vn_list = CTPO.dtype.names
                 # print(vn_list)
+
                 for v in vn_list:
                     # print(v)
                     if v in v_dict.keys():
@@ -117,15 +118,15 @@ for sn in moor_dict.keys():
                                 df0[v_dict[v]] = []  # Initialize the list if it doesn't exist
                                 df0[v_dict[v]].append(CTPO[v][0])
                             if v_dict[v] == 'matlab_time':
-                                df[str(v_dict[v])] = df0[str(v_dict[v])][0][0][0, :]
+                                df[str(v_dict[v])] = df0[str(v_dict[v])][0][0][0,:]
                             elif v_dict[v] == 'depth':
-                                df[str(v_dict[v])] = np.repeat(df0[str(v_dict[v])][0][0], len(df['matlab_time']))
+                                df[str(v_dict[v])] =  np.repeat(df0[str(v_dict[v])][0][0], len(df['matlab_time']))
                             else:
-                                df[str(v_dict[v])] = df0[str(v_dict[v])][0][0][:, 0]
+                                df[str(v_dict[v])] = df0[str(v_dict[v])][0][0][:,0]
 
                 df = df.dropna(axis=0, how='all')
                 df = df.reset_index(drop=True)
-                # (1) Create CT, SA, and z, lat, lon
+                # (1) Create CT, SA, and z
                 # - pull out variables
                 SP = df.SP.to_numpy()
                 IT = df.IT.to_numpy()
@@ -136,18 +137,20 @@ for sn in moor_dict.keys():
                 lat = np.repeat(sn_loc_dict[sn][1], len(df['matlab_time']))
                 SA = gsw.SA_from_SP(SP, p, lon, lat)
                 CT = gsw.CT_from_t(SA, IT, p)
+                PT = gsw.pt_from_t(SA, IT, p, 0)
                 # - add the results to the DataFrame
                 df['lat'] = lat
                 df['lon'] = lon
                 df['SA'] = SA
                 df['CT'] = CT
+                df['PT'] = PT
                 z = z * -1
                 df['z'] = z
-                # - do the conversions for unit and datetime
-                df['DO (uM)'] = df['oxy_mg'] * 1000 / 32
+                # - do the conversions
+                df['DO (uM)'] = df['oxy_mg'] * 1000/32
                 df['time'] = df['matlab_time'].apply(matlab_to_datetime)
                 # Keep only selected columns.
-                cols = ['time', 'lat', 'lon', 'z', 'CT', 'SA', 'DO (uM)']
+                cols = ['time', 'lat', 'lon', 'z', 'CT', 'PT', 'SA', 'SP', 'DO (uM)']
                 this_cols = [item for item in cols if item in df.columns]
                 df = df[this_cols]
                 # average the df to hourly, to netcdf file
@@ -156,9 +159,11 @@ for sn in moor_dict.keys():
                 df1.reset_index(inplace=True)
                 name = np.repeat(sn, len(df1['time']))
                 df1['name'] = name
-                column_order = ['time', 'lat', 'lon', 'name', 'z', 'CT', 'SA', 'DO (uM)']
+                column_order = ['time', 'lat', 'lon', 'name', 'z', 'CT', 'PT', 'SA', 'SP', 'DO (uM)']
                 df1 = df1[column_order]
                 ds = xr.Dataset.from_dataframe(df1)
                 ds.to_netcdf(out_fn)
+                print(out_fn)
 
-print('Total time = %d sec' % (int(Time() - tt0)))
+print('Total time = %d sec' % (int(Time()-tt0)))
+
