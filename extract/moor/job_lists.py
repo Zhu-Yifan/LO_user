@@ -29,7 +29,28 @@ def get_sta_dict(job_name):
             'TH042': (-124.7334, 47.8762),
             'TH065': (-124.7967, 47.8767)
         }
-                
+    elif job_name == 'PMEL': # NOAA PMEL moor
+        sta_dict = {
+
+            'CapeElizabeth': (-124.731, 47.353),
+            'Chaba':         (-125.958, 47.936),
+            'NH10':          (-124.778, 44.904),
+            'CapeArago':     (-124.500, 43.320),
+            'Dabob':         (-122.803, 47.803),
+            'Twanoh':        (-123.008, 47.375)
+        }
+
+    elif job_name == 'OOI': # Ocean Observation Initiative on the west coast
+        sta_dict = {
+
+            'CE01ISSM': (-124.095, 44.6598),
+            'CE02SHSM': (-124.304, 44.6393),
+            'CE04OSSM': (-124.956, 44.381),
+            'CE06ISSM': (-124.272, 47.1336),
+            'CE07SHSM': (-124.566, 46.986),
+            'CE09OSSM': (-124.972, 46.6508)
+
+        }
     elif job_name == 'mickett_1':
         sta_dict = {
         'ORCA_Hansville': (-122.6270, 47.9073),
