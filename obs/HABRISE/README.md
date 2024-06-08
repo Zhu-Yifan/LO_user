@@ -19,6 +19,10 @@
   - bottle: 2004-2006  
 
 
+<p align="center">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/HABRISE/plot/Sampling_station_2015.png" alt="Figure 1. MAP)">
+</p>
+
 
 Reference:
 
