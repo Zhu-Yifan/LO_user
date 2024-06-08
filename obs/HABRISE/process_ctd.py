@@ -99,6 +99,10 @@ for year in year_list:
             df['SP'] = pd.to_numeric(df['SP'], errors='coerce')
             df['IT'] = pd.to_numeric(df['IT'], errors='coerce')
             df['DO (ml/L)'] = pd.to_numeric(df['DO (ml/L)'], errors='coerce')
+            # remove bad data in 2003
+            if year == 2003:
+                df[df['DO (ml/L)'] <= 0.2] = np.nan
+                df[df['DO (ml/L)'] == 32.8703] = np.nan
             # there are some funky numbers, replace with nan
             df[df['SP']<= 0] = np.nan
             df[df['IT']<= 0] = np.nan
