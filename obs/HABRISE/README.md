@@ -6,13 +6,13 @@
 
 #### Source
 
-- **ECOHAB_PNW** Historic Data collected from six cruises over 2003-2006 off WA coastal waters.
+- **ECOHAB_PNW** Historic Data collected from six cruises over 2003-2006 off WA and OR coastal waters.
 - Data are publicly available in Dataset Collections section at https://www.bco-dmo.org/project/2094. NOTE: complied
   
   - ctd: 2003-2006
   - bottle: 2003-2006
 
-- **RISE** Historic Data collected from cruises over 2004-2006 off WA coastal waters.
+- **RISE** Historic Data collected from cruises over 2004-2006 off WA and OR coastal waters.
 - Data are publicly available in Dataset Collections section at https://www.bco-dmo.org/project/2095. NOTE: complied
 
   - ctd: 2004-2006
@@ -20,7 +20,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/HABRISE/plot/Sampling_station_2015.png" alt="Figure 1. MAP)" width="350" height="450">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/HABRISE/plot/Sampling_station_2015.png" alt="Figure 1. MAP)" width="300" height="450">
 </p>
 
 
