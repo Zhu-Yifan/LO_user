@@ -100,7 +100,7 @@ for year in year_list:
     df['z'] = z
     rho = gsw.rho(SA,CT,p)
     # (2) units
-    df['DO (uM)'] = df['DO (umol/kg)'] *  rho
+    df['DO (uM)'] = df['DO (umol/kg)'] * rho / 1000
 
     df['cid'] = np.nan
     cid = 0
