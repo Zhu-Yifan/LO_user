@@ -20,7 +20,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/HABRISE/plot/Sampling_station_2015.png" alt="Figure 1. MAP)">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/HABRISE/plot/Sampling_station_2015.png" alt="Figure 1. MAP)" width="250" height="400">
 </p>
 
 
