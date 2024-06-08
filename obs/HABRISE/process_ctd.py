@@ -120,7 +120,9 @@ for year in year_list:
             df['CT'] = CT
             df['z'] = z
             # (2) units
-            df['DO (uM)'] = df['DO (ml/L)'] * 1000 / 32
+            # convert Sea-Bird oxygen sensor data given in mL O2 (gas at S.T.P) per L of seawater
+            # into µmol O2 per L of seawater
+            df['DO (uM)'] = df['DO (ml/L)'] * 44.6596
             # append to df00
             if len(df['z']) != 1:
                 df00 = pd.concat([df00, df], ignore_index=True)
