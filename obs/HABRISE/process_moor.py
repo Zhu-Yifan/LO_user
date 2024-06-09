@@ -10,6 +10,7 @@ import xarray as xr
 import numpy as np
 import gsw
 from time import time as Time
+from datetime import datetime, timedelta
 
 from lo_tools import Lfun
 Ldir = Lfun.Lstart()
@@ -46,11 +47,18 @@ sn_loc_dict = {
 
 year = 2005
 
-# function to covert matlab datenum to datetime
+# function to convert matlab datenum to datetime and round up to the nearest second
 def matlab_to_datetime(matlab_datenum):
+    # Convert matlab_datenum to datetime
     days = matlab_datenum - 366
     fractional_days = matlab_datenum % 1
-    return datetime.fromordinal(int(days)) + timedelta(days=fractional_days)
+    dt = datetime.fromordinal(int(days)) + timedelta(days=fractional_days)
+    # # Round up microseconds to the next second if necessary
+    if dt.microsecond > 0:
+        dt += timedelta(seconds=1)
+    # Truncate microseconds to zero
+    dt = dt.replace(microsecond=0)
+    return dt
 
 tt0 = Time()
 in_fn = in_dir / 'e405sbe_hrly_tc.mat'
