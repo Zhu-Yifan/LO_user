@@ -1,6 +1,6 @@
 ## README for HABRISE
 
-#### This folder contains specific codes for processing two programs ECHOHAB_PNW and RISE led by Dr. Babara Hickey from UW in the 2000's
+#### This folder contains specific codes to process ~2000 ctd casts and 400 stations from two programs ECHOHAB_PNW and RISE led by Prof. Barbara Hickey from UW in the 2000's
 
 ---
 
@@ -11,6 +11,7 @@
   
   - ctd: 2003-2006
   - bottle: 2003-2006
+  - moor: 2005 
 
 - **RISE** Historic Data collected from cruises over 2004-2006 off WA and OR coastal waters.
 - Data are publicly available in Dataset Collections section at https://www.bco-dmo.org/project/2095. NOTE: complied
