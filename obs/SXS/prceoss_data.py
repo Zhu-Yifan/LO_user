@@ -97,7 +97,7 @@ for file in list(in_fn)[:]:
     this dataset has much higher temporal and spatial resolution than the model
     we can round lat and lon, to upscale them onto coarser resolution 2 km
     if lat the lon are the same, then label them as same cid
-    e.g., at same latitude, -124.17 to -124.18 is 0.8 km, this will be fine
+    e.g., at same latitude, -125 to -125.025 is ~ 2km, this will be fine
     then bin date into 1 dbar resolution 
     """
     df1['lat'] = df1['lat'].round(2)
