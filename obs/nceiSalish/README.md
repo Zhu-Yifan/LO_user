@@ -1,4 +1,4 @@
-## README for NHL
+## README for nceiSalish
 
 #### This folder contain code for processing Salish Sea data since 2008-2018 
 
