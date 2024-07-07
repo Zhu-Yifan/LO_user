@@ -23,5 +23,7 @@ Reference:
 
 - Smith, L. M., Barth, J. A., Kelley, D. S., Plueddemann, A., Rodero, I., Ulses, G. A., Vardaro, M. F., & Weller, R. (2018). The Ocean Observatories Initiative. Oceanography, 31(1), 16–35. http://www.jstor.org/stable/26307783
 
+- Photo Credit: Center for Environmental Visualization, University of Washington
+
 ---
 
