@@ -43,12 +43,12 @@ def get_sta_dict(job_name):
     elif job_name == 'OOI': # Ocean Observation Initiative on the west coast
         sta_dict = {
 
-            'CE01ISSM': (-124.095, 44.6598),
-            'CE02SHSM': (-124.304, 44.6393),
-            'CE04OSSM': (-124.956, 44.381),
-            'CE06ISSM': (-124.272, 47.1336),
-            'CE07SHSM': (-124.566, 46.986),
-            'CE09OSSM': (-124.972, 46.6508)
+            'CE01ISSM': (-124.09583, 44.65978),
+            'CE02SHSM': (-124.3032, 44.63532),
+            'CE04OSSM': (-124.9398, 44.36518),
+            'CE06ISSM': (-124.26973, 47.13365),
+            'CE07SHSM': (-124.55202, 46.98472),
+            'CE09OSSM': (-124.9509, 46.85343)
 
         }
     elif job_name == 'mickett_1':
