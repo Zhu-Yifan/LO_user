@@ -1,5 +1,5 @@
 """
-Code to process the PMEL surface pCO2 mooring data.
+Code to process the NOAA PMEL surface pCO2 mooring data.
 
 This also formats MOORING data in the LO standard as .nc file for LO_output/obs.
 
@@ -67,7 +67,6 @@ tt0 = Time()
 for sn in sn_name_dict.keys():
     print(sn)
     in_file = in_dir / f'{sn}.txt'
-    out_fn = out_dir / (sn_name_dict[sn] + '_surface_moor_hourly.nc')
     ds0 = pd.read_csv(in_file, delimiter='\t', skiprows=range(109), parse_dates= ['datetime_utc'])
     df0 = pd.DataFrame()
     for vn in v_dict.keys():
@@ -79,8 +78,12 @@ for sn in sn_name_dict.keys():
 
     # average the df0 to hourly, to netcdf file
     df0.set_index('time', inplace=True)
-    df = df0.resample('H').mean()
+    df = df0.resample('h').mean()
     df.reset_index(inplace=True)
+
+    year_start = df['time'].dt.year.min()
+    year_end = df['time'].dt.year.max()
+    out_fn = out_dir / f'{sn_name_dict[sn]}_moor_hourly_{year_start}-{year_end}.nc'
 
     # use gsw
     SP = df.SP.to_numpy()
@@ -105,8 +108,9 @@ for sn in sn_name_dict.keys():
     df['z'] = z
     # - do the conversions
     df['DO (uM)'] = df['DO (umol/kg)'] *  rho
+
     # Keep only selected columns.
-    cols = ['time', 'lat', 'lon', 'name','z', 'PT','SP','CT', 'SA', 'pCO2 (uatm)', 'pH','DO (uM)']
+    cols = ['time', 'lat', 'lon', 'name','z', 'IT', 'PT','CT', 'SP', 'SA','pCO2 (uatm)', 'pH','DO (uM)']
     this_cols = [item for item in cols if item in df.columns]
     df = df[this_cols]
     ds = xr.Dataset.from_dataframe(df)
