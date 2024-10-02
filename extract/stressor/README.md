@@ -10,7 +10,7 @@ Marine heatwaves (MHWs) are extreme warming events that are becoming more severe
 One of the most recent and severe MHWs in the northeast Pacific was the **"Blob"** of 2014–2016, which led to numerous ecological disturbances, including harmful algal blooms, mass seabird mortality, and shifts in community structures within kelp forests of the California Current System.
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/MHW_defination.png" alt="Figure 1. MHWs definition" width="300" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/MHW_defination.png" alt="Figure 1. MHWs definition" width="650" height="400">
 </p>
 
 #### Content
