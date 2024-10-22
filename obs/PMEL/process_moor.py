@@ -42,8 +42,10 @@ sn_loc_dict = {
 
     'CAPEELIZABETH': [-124.731, 47.353],
     'CHABA':         [-125.958, 47.936],
-    'NH10':          [-124.778, 44.904],
-    'CAPEARAGO':     [-124.500, 43.320],
+#   'NH10':          [-124.778, 44.904], # based on https://www.pmel.noaa.gov/co2/timeseries/NH10.txt, it is not correct
+    'NH10':          [-124.301, 44.642], # use this, from https://www.pmel.noaa.gov/co2/story/NH-10
+#    'CAPEARAGO':     [-124.500, 43.320], # discard
+    'CAPEARAGO':     [-124.530, 43.300], # use this, # https://www.pmel.noaa.gov/co2/story/CB-06
     'DABOB':         [-122.803, 47.803],
     'TWANOH':        [-123.008, 47.375]
 }
