@@ -56,8 +56,8 @@ vn_dict = {
     'sea_water_temperature': 'IT',
     'sea_water_practical_salinity': 'SP',
     'oxygen_concentration': '',
-    'oxygen_concentration_corrected': 'DO (uM)',
-    'sea_water_pco2': 'pco2',
+    'oxygen_concentration_corrected': 'DO', #  (uM)
+    'sea_water_pco2': 'pCO2',
     'sea_water_ph': 'pH'
 
 }
@@ -96,14 +96,14 @@ for sn in sn_name_dict.keys():
             df0.at[jj-1, 'time'] = df0['Time'].iloc[jj-1]
             df0.at[jj, 'time'] = df0['Time'].iloc[jj]
 
-            # print(df0['time'].iloc[jj-4])
-            # print(df0['time'].iloc[jj-3])
-            # print(df0['time'].iloc[jj-2])
-            # print(df0['time'].iloc[jj-1])
-            # print(df0['time'].iloc[jj])
-            # print(df0['time'].iloc[jj+1])
-            # print(df0['time'].iloc[jj+2])
-            # print(df0['time'].iloc[jj+3])
+            print(df0['time'].iloc[jj-4])
+            print(df0['time'].iloc[jj-3])
+            print(df0['time'].iloc[jj-2])
+            print(df0['time'].iloc[jj-1])
+            print(df0['time'].iloc[jj])
+            print(df0['time'].iloc[jj+1])
+            print(df0['time'].iloc[jj+2])
+            print(df0['time'].iloc[jj+3])
         # remove NaT values
         df0 = df0[df0['time'].notnull()]
 
@@ -126,13 +126,16 @@ for sn in sn_name_dict.keys():
         SA = gsw.SA_from_SP(SP, p, lon, lat)
         CT = gsw.CT_from_t(SA, IT, p)
         PT = gsw.pt_from_t(SA, IT, p, 0)
+        z = gsw.z_from_p(p,lat)
         # - add the results to the DataFrame
+        df['IT'] = SA
         df['SA'] = SA
         df['CT'] = CT
         df['PT'] = PT
-        df['z'] = df['z'] * -1
+        # df['z'] = df['z'] * -1
+        df['z'] = z
         # Keep only selected columns.
-        cols = ['time', 'lat', 'lon', 'z', 'CT', 'PT', 'SA', 'SP', 'DO (uM)', 'pco2', 'pH']
+        cols = ['time', 'IT', 'CT', 'PT','SA','SP', 'DO','pCO2','pH']
         this_cols = [item for item in cols if item in df.columns]
         df = df[this_cols]
 
@@ -141,17 +144,21 @@ for sn in sn_name_dict.keys():
         but NOT interpolate with mean
         """
         df.set_index('time', inplace=True)
-        df1 = df.resample('H').asfreq()
+        df1 = df.resample('h').asfreq()
         df1.reset_index(inplace=True)
 
         # save to netcdf file
         name = sn
         location = sn_name_dict[sn]
-        depth = np.mean(df['z']).round(1)
+        depth = np.mean(z).round(1)
 
         ds = xr.Dataset.from_dataframe(df1.set_index('time'))
-        # ds = ds.assign_coords(name=name, lat=lat, lon=lon, depth=depth)
-        # ds = ds.expand_dims(['name', 'lat', 'lon', 'depth'])
+
+        ds = ds.assign_coords({
+            'longitude': ([], sn_loc_dict[sn][0]),
+            'latitude': ([], sn_loc_dict[sn][1]),
+            'depth': ([], depth),
+        })
 
         # Assign attributes
         ds.attrs['name'] = name
@@ -160,6 +167,33 @@ for sn in sn_name_dict.keys():
         ds.attrs['lon'] = lon
         ds.attrs['depth (m)'] = depth
 
+        # Add attributes to specific variables
+        ds['IT'].attrs['units'] = 'Celsius'
+        ds['IT'].attrs['long_name'] = 'In situ temperature'
+
+        ds['PT'].attrs['units'] = 'Celsius'
+        ds['PT'].attrs['long_name'] = 'Potential temperature'
+
+        ds['CT'].attrs['units'] = 'Celsius'
+        ds['CT'].attrs['long_name'] = 'Conservative temperature'
+
+        ds['SP'].attrs['units'] = 'PSU'
+        ds['SP'].attrs['long_name'] = 'Practical salinity'
+
+        ds['SA'].attrs['units'] = 'g/kg'
+        ds['SA'].attrs['long_name'] = 'Absolute Salinity'
+
+        ds['DO'].attrs['units'] = 'umol/L'
+        ds['DO'].attrs['long_name'] = 'dissolved oxygen'
+
+        ds['pCO2'].attrs['units'] = 'uatm'
+        ds['pCO2'].attrs['long_name'] = 'Surface seawater pCO2'
+
+        ds['pH'].attrs['long_name'] = 'Total scale pH'
+
         ds.to_netcdf(out_fn)
         print(out_fn)
+
+
+
 
