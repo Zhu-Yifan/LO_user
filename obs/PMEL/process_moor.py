@@ -49,14 +49,13 @@ sn_loc_dict = {
     'DABOB':         [-122.803, 47.803],
     'TWANOH':        [-123.008, 47.375]
 }
-
 vn_list = ['SST', 'SSS', 'pCO2_sw', 'pH_sw', 'DOXY', 'CHL']
 
 v_dict = {
     'datetime_utc': 'time',
     'SST': 'IT',
     'SSS': 'SP',
-    'pCO2_sw': 'pCO2 (uatm)',
+    'pCO2_sw': 'pCO2', #  (uatm)
     'pCO2_air': '',
     'xCO2_air': '',
     'pH_sw': 'pH',
@@ -109,14 +108,59 @@ for sn in sn_name_dict.keys():
     df['PT'] = PT
     df['z'] = z
     # - do the conversions
-    df['DO (uM)'] = df['DO (umol/kg)'] *  rho
+    df['DO'] = df['DO (umol/kg)'] *  rho
 
     # Keep only selected columns.
-    cols = ['time', 'lat', 'lon', 'name','z', 'IT', 'PT','CT', 'SP', 'SA','pCO2 (uatm)', 'pH','DO (uM)']
+    cols = ['time','IT', 'PT','CT', 'SP', 'SA','pCO2', 'pH','DO']
     this_cols = [item for item in cols if item in df.columns]
     df = df[this_cols]
+
+    name = sn
+    location = sn_name_dict[sn]
+    depth = np.mean(z).round(1)
+
+    df.set_index('time', inplace=True)
     ds = xr.Dataset.from_dataframe(df)
+    ds = ds.assign_coords({
+        'longitude': ([], sn_loc_dict[sn][0]),  # Scalar for longitude
+        'latitude': ([], sn_loc_dict[sn][1]),      # Scalar for latitude
+        'depth': ([], depth),
+    })
+
+    # Assign global attributes
+    ds.attrs['description'] = 'NOAA PMEL surface bouy'
+    ds.attrs['name'] = name
+    # ds.attrs['location'] = location
+    ds.attrs['lat'] = sn_loc_dict[sn][1]
+    ds.attrs['lon'] = sn_loc_dict[sn][0]
+    ds.attrs['depth (m)'] = depth
+
+    # Add attributes to specific variables
+    ds['IT'].attrs['units'] = 'Celsius'
+    ds['IT'].attrs['long_name'] = 'In situ temperature'
+
+    ds['PT'].attrs['units'] = 'Celsius'
+    ds['PT'].attrs['long_name'] = 'Potential temperature'
+
+    ds['CT'].attrs['units'] = 'Celsius'
+    ds['CT'].attrs['long_name'] = 'Conservative temperature'
+
+    ds['SP'].attrs['units'] = 'PSU'
+    ds['SP'].attrs['long_name'] = 'Practical salinity'
+
+    ds['SA'].attrs['units'] = 'g/kg'
+    ds['SA'].attrs['long_name'] = 'Absolute Salinity'
+
+    ds['DO'].attrs['units'] = 'umol/L'
+    ds['DO'].attrs['long_name'] = 'dissolved oxygen'
+
+    ds['pCO2'].attrs['units'] = 'uatm'
+    ds['pCO2'].attrs['long_name'] = 'Surface seawater pCO2'
+
+    ds['pH'].attrs['long_name'] = 'Total scale pH'
+
     ds.to_netcdf(out_fn)
 
 print('Total time = %d sec' % (int(Time()-tt0)))
+
 
