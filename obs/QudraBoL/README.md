@@ -1,20 +1,20 @@
 ## README for QudraBoL
 
-#### This folder contains code for processing surface pCO2 moorings maintained by Dr. Wiley Evans et al from HaKai Institute 
+#### This folder contains code for processing surface pCO2 moorings maintained by Dr. Wiley Evans et al from HaKai Institute, Canada 
 
 ---
 
 #### Source
 
 - **QudraBoL** Mooring pCO2 data collected off Quadra Island Field Station in the Strait of Georgia, Canada during 2014-2023 
-- Data are publicly available at https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0208638.html. 
-  - 
+- Data are publicly available at https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0208638.html
+
   - moor 
  
  
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/QudraBoL/plot/Bouy%20location.png" alt="Figure 1. map)" width="350" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/obs/QudraBoL/plot/Bouy%20location.png" alt="Figure 1. map)" width="400" height="400">
 </p>
 
 Reference:
