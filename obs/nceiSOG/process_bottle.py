@@ -1,4 +1,3 @@
-#%%
 """
 Code to process the bottle profile carbon data collected in the Strait of Georgia, ~ 300 casts
 
@@ -513,10 +512,10 @@ for year in year_list:
     df0 = df[df['time'].dt.year == year]
     # # Renumber cid to be increasing from zero in steps of one.
     df0 = obs_functions.renumber_cid(df0)
-    if len(df) > 0:
+    if len(df0) > 0:
         # Save the data
-        df.to_pickle(out_fn)
-        info_df = obs_functions.make_info_df(df)
+        df0.to_pickle(out_fn)
+        info_df = obs_functions.make_info_df(df0)
         info_df.to_pickle(info_out_fn)
 
     print('  - processed %d casts' % (len(df0.cid.unique())))
