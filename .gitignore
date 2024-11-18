@@ -16,7 +16,8 @@ LO_user/obs/OLD/
 LO_user/obs/orca/
 LO_user/obs/SOG/
 LO_user/obs/readme_plots/
-LO_user/extract/
+LO_user/extract/trend/
+LO_user/extract/stressor/
 LO_user/extract/**/*.ipynb
 # Jupyter Notebook
 .ipynb_checkpoints
