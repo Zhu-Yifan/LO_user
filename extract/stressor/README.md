@@ -26,10 +26,10 @@ Hypoxia refers to a condition where Hypoxia in marine systems refers to a condit
 Hypoxia causes physiological stress, reduced growth rates, impaired reproduction, and, at extreme levels, mass mortality (e.g., die off events of fish, crabs, lobster). Sediment-dwelling organisms are particularly vulnerable because they cannot escape hypoxic conditions. Prolonged hypoxia can lead to benthic dead zones.
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/hypoxia_thereshold.jpg" alt="Figure 2. hypoxia threshold" width="600" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/hypoxia_thereshold.jpg" alt="Figure 2. hypoxia threshold" width="700" height="400">
 </p>
 
-Hypoxia occurs in both natural and anthropogenic contexts, mostly in continental shelves (<200 m), coastal seas (e.g., Baltic Sea), estuaries (e.g., Chesapeake Bay). In these systems, hypoxia is strongly seasonal. Additionally, there are Oxygen Minimum Zones (OMXs) at mid-depths (200–1000 m) in the open ocean (e.g., Eastern Tropical North and South Pacific, Arabian Sea), driven by sluggish circulation and high organic matter decomposition.
+Hypoxia occurs in both natural and anthropogenic contexts, mostly in continental shelves (<200 m), coastal seas (e.g., Baltic Sea), estuaries (e.g., Chesapeake Bay). In these systems, hypoxia is strongly seasonal. Additionally, there are Oxygen Minimum Zones (OMZs) at mid-depths (200–1000 m) in the open ocean (e.g., Eastern Tropical North and South Pacific, Arabian Sea), driven by sluggish circulation and high organic matter decomposition.
 Expanding hypoxia areas due to climate change threaten marine ecosystems, and will limit suitable habitat for marine life.
 
 <p align="center">
@@ -50,6 +50,8 @@ Ocean acidification (OA) refers to the ongoing change in seawater chemistry acro
   <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/pmel-oa-imageee.jpg" alt="Figure 4. OA" width="600" height="400">
 >
 </p>
+
+The indicators of OA include pCO2, pH, aragonite saturation state, calcite saturation state, total dissolved inorganic carbon content, and total alkalinity content.
 
 ### Table of content
 | Module | Anlysis |    Comments                                |                                                                          
