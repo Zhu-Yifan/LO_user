@@ -1,6 +1,6 @@
 ## README for stressor
 
-#### This folder contains codes to extract multi-stressor events including Marine Heat Waves, Hypoxia, and Ocean Acidification.  
+#### This folder contains codes to extract marine extreme events including Marine Heat Waves, Hypoxia, and Ocean Acidification.  
 
 ---
 
@@ -26,7 +26,7 @@ Hypoxia refers to a condition where Hypoxia in marine systems refers to a condit
 Hypoxia causes physiological stress, reduced growth rates, impaired reproduction, and, at extreme levels, mass mortality (e.g., die off events of fish, crabs, lobster). Sediment-dwelling organisms are particularly vulnerable because they cannot escape hypoxic conditions. Prolonged hypoxia can lead to benthic dead zones.
 
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/hypoxia_thereshold.jpg" alt="Figure 2. hypoxia threshold">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/hypoxia_thereshold.jpg" alt="Figure 2. hypoxia threshold" width="600" height="400">
 </p>
 
 Hypoxia occurs in both natural and anthropogenic contexts, mostly in continental shelves (<200 m), coastal seas (e.g., Baltic Sea), estuaries (e.g., Chesapeake Bay). In these systems, hypoxia is strongly seasonal. Additionally, there are Oxygen Minimum Zones (OMXs) at mid-depths (200–1000 m) in the open ocean (e.g., Eastern Tropical North and South Pacific, Arabian Sea), driven by sluggish circulation and high organic matter decomposition.
@@ -47,7 +47,8 @@ Expanding hypoxia areas due to climate change threaten marine ecosystems, and wi
 ### Ocean Acidification 
 Ocean acidification (OA) refers to the ongoing change in seawater chemistry across Earth's oceans, primarily driven by the absorption of about a quarter of anthropogenic carbon dioxide (CO2) emissions. This process decreases ocean pH levels and carbonate ion concentrations, impacting the formation of calcium carbonate-based structures of marine organisms such as corals, shellfish, and certain planktonic species, which might have cascading effects on marine food webs and ecosystem functioning.
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/hypoxic_areas.jpeg" alt="Figure 4. OA" width="500" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/pmel-oa-imageee.jpg" alt="Figure 4. OA" width="600" height="400">
+>
 </p>
 
 ### Table of content
