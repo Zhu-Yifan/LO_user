@@ -4,7 +4,7 @@
 
 ---
 
-### MHWs
+### 1. MHWs
 Marine heatwaves (MHWs) are extreme warming events that are becoming more severe, frequent, and prolonged due to climate change. MHWs are defined as extended, distinct periods of unusually high seawater temperatures (Hobday et al., 2016). Specifically, an MHW occurs when seawater temperatures at a specific location exceed the local 90th percentile based on a 30-year fixed climatology (Fig. 1).
 One of the most recent and severe MHWs in the northeast Pacific was the **"Blob"** of 2014–2016, which led to numerous ecological disturbances, including harmful algal blooms, mass seabird mortality, and shifts in community structures within kelp forests of the California Current System.
 
@@ -21,7 +21,7 @@ One of the most recent and severe MHWs in the northeast Pacific was the **"Blob"
 
 
 
-### Hypoxia
+### 2. Hypoxia
 Hypoxia refers to a condition where Hypoxia in marine systems refers to a condition where the dissolved oxygen (DO) concentration in the water falls to levels that are insufficient to sustain most aerobic organisms. While the specific threshold can vary, hypoxia is typically defined as a DO concentration below 2 mg/L (= 1.4 ml/L, Fig. 2) or ~30% saturation.
 Hypoxia causes physiological stress, reduced growth rates, impaired reproduction, and, at extreme levels, mass mortality (e.g., die off events of fish, crabs, lobster). Sediment-dwelling organisms are particularly vulnerable because they cannot escape hypoxic conditions. Prolonged hypoxia can lead to benthic dead zones.
 
@@ -44,10 +44,10 @@ Expanding hypoxia areas due to climate change threaten marine ecosystems, and wi
 |  ...   |   ...   | ...|                       
 
 
-### Ocean Acidification 
+### 3. Ocean Acidification 
 Ocean acidification (OA) refers to the ongoing change in seawater chemistry across Earth's oceans, primarily driven by the absorption of about a quarter of anthropogenic carbon dioxide (CO2) emissions. This process decreases ocean pH levels and carbonate ion concentrations, impacting the formation of calcium carbonate-based structures of marine organisms such as corals, shellfish, and certain planktonic species, which might have cascading effects on marine food webs and ecosystem functioning.
 <p align="center">
-  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/pmel-oa-imageee.jpg" alt="Figure 4. OA" width="600" height="400">
+  <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/pmel-oa-imageee.jpg" alt="Figure 4. OA" width="700" height="400">
 >
 </p>
 
