@@ -48,7 +48,6 @@ Expanding hypoxia areas due to climate change threaten marine ecosystems, and wi
 Ocean acidification (OA) refers to the ongoing change in seawater chemistry across Earth's oceans, primarily driven by the absorption of about a quarter of anthropogenic carbon dioxide (CO2) emissions. This process decreases ocean pH levels and carbonate ion concentrations, impacting the formation of calcium carbonate-based structures of marine organisms such as corals, shellfish, and certain planktonic species, which might have cascading effects on marine food webs and ecosystem functioning.
 <p align="center">
   <img src="https://github.com/Zhu-Yifan/LO_user/blob/master/extract/stressor/Figure/pmel-oa-imageee.jpg" alt="Figure 4. OA" width="700" height="400">
->
 </p>
 
 The indicators of OA include pCO2, pH, aragonite saturation state, calcite saturation state, total dissolved inorganic carbon content, and total alkalinity content.
