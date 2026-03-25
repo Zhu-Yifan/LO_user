@@ -15,7 +15,7 @@ Lfun.make_dir(out_dir)
 
 river = True
 if river:
-    fn_dir = '/mnt/adora_a1/fsoares/LiveOcean/LO_output/forcing/cas2k'
+    fn_dir = '/a1/fsoares/LiveOcean/LO_output/forcing/cas2k'
     sub_folder = 'riv00'
     source_file_name = 'rivers.nc'
     year_list = np.arange(1993, 2022+1)
@@ -37,12 +37,11 @@ if river:
                 fn = os.path.join(fn_dir,folder,sub_folder, source_file_name)
                 # fn_list.append(fn)
                 df = xr.open_dataset(fn)
-                # vn = ['river_direction','river_transport']
-                vn = ['river_NO3','river_TIC']
+                vn = ['river_direction','river_transport']
                 ds = df[vn].sel(river_time=pd.to_datetime(f'{year}-{month:02d}-{day:02d} 12:00:00'))
                 df.close()
                 ds_list.append(ds)
     ds = xr.concat(ds_list, dim='river_time')
     print('finished all the files')
-    ds.to_netcdf(f'{out_dir}/river_historical_BGC_{year_list[0]}-{year_list[-1]}.nc')
+    ds.to_netcdf(f'{out_dir}/river_historical_{year_list[0]}-{year_list[-1]}.nc')
     print(f'extract river forcing is saved')

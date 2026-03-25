@@ -43,8 +43,8 @@ def P_basic(in_dict):
     # AR is the aspect ratio of the map: Vertical/Horizontal
     AR = (aa[3] - aa[2]) / (np.sin(np.pi*aa[2]/180)*(aa[1] - aa[0]))
     fs = 14
-    hgt = 8.5
-    pfun.start_plot(fs=fs, figsize=(hgt*2.7/AR,hgt))
+    hgt = 10
+    pfun.start_plot(fs=fs, figsize=(int(hgt*2.5/AR),int(hgt)))
     fig = plt.figure()
     # PLOT CODE
     vn_list = ['salt', 'temp']
@@ -66,60 +66,6 @@ def P_basic(in_dict):
             pfun.add_info(ax, in_dict['fn'])
             #pfun.add_windstress_flower(ax, ds)
             pfun.add_bathy_contours(ax, ds, txt=True)
-            
-            # AttSW boxes
-            pfun.draw_box(ax, [-125.31, -123.89, 49.13, 51.02])
-            pfun.draw_box(ax, [-123.89, -122, 47.02, 50.29])
-        elif ii == 2:
-            ax.set_yticklabels([])
-            pfun.add_velocity_vectors(ax, ds, in_dict['fn'])
-        ii += 1
-    fig.tight_layout()
-    # FINISH
-    ds.close()
-    pfun.end_plot()
-    if len(str(in_dict['fn_out'])) > 0:
-        plt.savefig(in_dict['fn_out'])
-        plt.close()
-    else:
-        plt.show()
-        
-def P_basic_AttSW_boxes(in_dict):
-    # One-off code to look at the places in Aurora's code where AttSW is increased
-    # START
-    ds = xr.open_dataset(in_dict['fn'])
-    # find aspect ratio of the map
-    aa = pfun.get_aa(ds)
-    # AR is the aspect ratio of the map: Vertical/Horizontal
-    AR = (aa[3] - aa[2]) / (np.sin(np.pi*aa[2]/180)*(aa[1] - aa[0]))
-    fs = 14
-    hgt = 8.5
-    pfun.start_plot(fs=fs, figsize=(hgt*2.7/AR,hgt))
-    fig = plt.figure()
-    # PLOT CODE
-    vn_list = ['salt', 'temp']
-    ii = 1
-    for vn in vn_list:
-        if in_dict['auto_vlims']:
-            pinfo.vlims_dict[vn] = ()
-        ax = fig.add_subplot(1, len(vn_list), ii)
-        cs = pfun.add_map_field(ax, ds, vn, pinfo.vlims_dict,
-                cmap=pinfo.cmap_dict[vn], fac=pinfo.fac_dict[vn], vlims_fac=pinfo.range_dict[vn])
-        fig.colorbar(cs)
-        pfun.add_coast(ax)
-        ax.axis(pfun.get_aa(ds))
-        pfun.dar(ax)
-        ax.set_title('Surface %s %s' % (pinfo.tstr_dict[vn],pinfo.units_dict[vn]), fontsize=1.2*fs)
-        ax.set_xlabel('Longitude')
-        if ii == 1:
-            ax.set_ylabel('Latitude')
-            pfun.add_info(ax, in_dict['fn'])
-            #pfun.add_windstress_flower(ax, ds)
-            pfun.add_bathy_contours(ax, ds, txt=True)
-            
-            # AttSW boxes
-            pfun.draw_box(ax, [-125.31, -123.89, 49.13, 51.02])
-            pfun.draw_box(ax, [-123.89, -122, 47.02, 50.29])
         elif ii == 2:
             ax.set_yticklabels([])
             pfun.add_velocity_vectors(ax, ds, in_dict['fn'])
@@ -143,8 +89,8 @@ def P_basic_PS(in_dict):
     # AR is the aspect ratio of the map: Vertical/Horizontal
     AR = (aa[3] - aa[2]) / (np.sin(np.pi*aa[2]/180)*(aa[1] - aa[0]))
     fs = 14
-    hgt = 8.5
-    pfun.start_plot(fs=fs, figsize=(hgt*2.7/AR,hgt))
+    hgt = 10
+    pfun.start_plot(fs=fs, figsize=(int(hgt*2.5/AR),int(hgt)))
     fig = plt.figure()
     # PLOT CODE
     vn_list = ['salt', 'temp']
@@ -196,8 +142,8 @@ def P_Fb(in_dict):
     # AR is the aspect ratio of the map: Vertical/Horizontal
     AR = (aa[3] - aa[2]) / (np.sin(np.pi*aa[2]/180)*(aa[1] - aa[0]))
     fs = 14
-    hgt = 8.5
-    pfun.start_plot(fs=fs, figsize=(hgt*2.7/AR,hgt))
+    hgt = 10
+    pfun.start_plot(fs=fs, figsize=(int(hgt*2.5/AR),int(hgt)))
     fig = plt.figure()
     # PLOT CODE
     vn_list = ['salt', 'Fb']
@@ -255,8 +201,8 @@ def P_fancy(in_dict):
     # AR is the aspect ratio of the map: Vertical/Horizontal
     AR = (aa[3] - aa[2]) / (np.sin(np.pi*aa[2]/180)*(aa[1] - aa[0]))
     fs = 14
-    hgt = 8.5
-    pfun.start_plot(fs=fs, figsize=(hgt*2.7/AR,hgt))
+    hgt = 10
+    pfun.start_plot(fs=fs, figsize=(int(hgt*2.5/AR),int(hgt)))
     fig = plt.figure()
     # PLOT CODE
     import cmcrameri.cm as cmr
@@ -307,8 +253,8 @@ def P_dive_vort(in_dict):
     # AR is the aspect ratio of the map: Vertical/Horizontal
     AR = (aa[3] - aa[2]) / (np.sin(np.pi*aa[2]/180)*(aa[1] - aa[0]))
     fs = 14
-    hgt = 8.5
-    pfun.start_plot(fs=fs, figsize=(hgt*2.7/AR,hgt))
+    hgt = 10
+    pfun.start_plot(fs=fs, figsize=(int(hgt*2.5/AR),int(hgt)))
     fig = plt.figure()
     
     # create fields
@@ -778,9 +724,8 @@ def P_layer(in_dict):
     fig = plt.figure()
     ds = xr.open_dataset(in_dict['fn'])
     # PLOT CODE
-    #vn_list = ['oxygen', 'temp']
-    vn_list = ['TIC', 'alkalinity']
-    z_level = -1500
+    vn_list = ['oxygen', 'temp']
+    z_level = -250
     zfull = pfun.get_zfull(ds, in_dict['fn'], 'rho')
     ii = 1
     for vn in vn_list:
@@ -974,122 +919,9 @@ def P_sect(in_dict):
     ax.plot(dist, ztop, '-b', linewidth=1)
     ax.set_xlim(dist.min(), dist.max())
     ax.set_ylim(zdeep, 5)
-    
     # plot section
     svlims = pinfo.vlims_dict[vn]
-    cs = ax.pcolormesh(dist_se,zw_se,sf,
-                       vmin=svlims[0], vmax=svlims[1], cmap=pinfo.cmap_dict[vn])
-    fig.colorbar(cs, ax=ax)
-    ax.set_xlabel('Distance (km)')
-    ax.set_ylabel('Z (m)')
-    ax.set_title('Section %s %s' % (pinfo.tstr_dict[vn],pinfo.units_dict[vn]))
-    fig.tight_layout()
-    # FINISH
-    ds.close()
-    pfun.end_plot()
-    if len(str(in_dict['fn_out'])) > 0:
-        plt.savefig(in_dict['fn_out'])
-        plt.close()
-    else:
-        plt.show()
-        
-def P_sect_hc(in_dict):
-    """
-    This plots a map and a section (distance, z), and makes sure
-    that the color limits are identical.  If the color limits are
-    set automatically then the section is the preferred field for
-    setting the limits.
-    
-    Focus on Hood Canal.
-    
-    Uses the new pfun.get_sect() function.
-    
-    2023.10.31 This is the first code to use the new location of user-created sections
-    in LO_output/section_lines, created using the new tool LO/plotting/create_sect_lines.py.
-    """
-    # START
-    fs = 14
-    pfun.start_plot(fs=fs, figsize=(20,9))
-    fig = plt.figure()
-    ds = xr.open_dataset(in_dict['fn'])
-    # PLOT CODE
-    vn = 'oxygen'#'phytoplankton'
-    if vn == 'salt':
-        pinfo.cmap_dict[vn] = 'jet'
-    elif vn == 'oxygen':
-        # pinfo.cmap_dict[vn] = 'Spectral_r'
-        pinfo.cmap_dict[vn] = 'nipy_spectral'
-        # pinfo.cmap_dict[vn] = 'tab20b'
-    # GET DATA
-    G, S, T = zrfun.get_basic_info(in_dict['fn'])
-    # CREATE THE SECTION
-    # read in a section (or list of sections)
-    tracks_path = Ldir['LOo'] / 'section_lines'
-    tracks = ['hc1.p','hc2.p','hc3.p']
-    zdeep = -175
-    xx = np.array([])
-    yy = np.array([])
-    for track in tracks:
-        track_fn = tracks_path / track
-        # get the track to interpolate onto
-        tdf = pd.read_pickle(track_fn)
-        xx = np.concatenate((xx,tdf['x'].to_numpy()))
-        yy = np.concatenate((yy,tdf['y'].to_numpy()))
-    for ii in range(len(xx)-1):
-        x0 = xx[ii]
-        x1 = xx[ii+1]
-        y0 = yy[ii]
-        y1 = yy[ii+1]
-        nn = 20
-        if ii == 0:
-            x_e = np.linspace(x0, x1, nn)
-            y_e = np.linspace(y0,y1, nn)
-        else:
-            x_e = np.concatenate((x_e, np.linspace(x0, x1, nn)[1:]))
-            y_e = np.concatenate((y_e, np.linspace(y0, y1, nn)[1:]))
-                
-    x, y, dist, dist_e, zbot, ztop, dist_se, zw_se, fld_s, lon, lat = \
-        pfun.get_sect(in_dict['fn'], vn, x_e, y_e)
-        
-    # COLOR
-    # scaled section data
-    sf = pinfo.fac_dict[vn] * fld_s
-    # now we use the scaled section as the preferred field for setting the
-    # color limits of both figures in the case -avl True
-    if in_dict['auto_vlims']:
-        pinfo.vlims_dict[vn] = pfun.auto_lims(sf)
-    
-    # PLOTTING
-    # map with section line
-    ax = fig.add_subplot(1, 3, 1)
-    cs = pfun.add_map_field(ax, ds, vn, pinfo.vlims_dict,
-            cmap=pinfo.cmap_dict[vn], fac=pinfo.fac_dict[vn], do_mask_edges=True)
-    # fig.colorbar(cs, ax=ax) # It is identical to that of the section
-    pfun.add_coast(ax)
-    aaf = [-123.5, -122.5, 47.25, 48.5] # focus domain
-    ax.axis(aaf)
-    pfun.dar(ax)
-    pfun.add_info(ax, in_dict['fn'], loc='upper_right')
-    ax.set_title('Surface %s %s' % (pinfo.tstr_dict[vn],pinfo.units_dict[vn]))
-    ax.set_xlabel('Longitude')
-    ax.set_ylabel('Latitude')
-    # add section track
-    ax.plot(x, y, '-k', linewidth=2)
-    ax.plot(x[0], y[0], 'o', markersize=5, markerfacecolor='w',
-        markeredgecolor='k', markeredgewidth=2)
-    ax.set_xticks([-123.5, -123, -122.5])
-    ax.set_yticks([47.5, 48, 48.5])
-    # section
-    ax = fig.add_subplot(1, 3, (2, 3))
-    
-    ax.plot(dist, zbot, '-k', linewidth=2)
-    ax.plot(dist, ztop, '-b', linewidth=1)
-    ax.set_xlim(dist.min(), dist.max())
-    ax.set_ylim(zdeep, 5)
-    
-    # plot section
-    svlims = pinfo.vlims_dict[vn]
-    cs = ax.pcolormesh(dist_se,zw_se,sf,
+    cs = ax.pcolormesh(dist_se,zw_se,fld_s,
                        vmin=svlims[0], vmax=svlims[1], cmap=pinfo.cmap_dict[vn])
     fig.colorbar(cs, ax=ax)
     ax.set_xlabel('Distance (km)')
@@ -1579,7 +1411,7 @@ def P_splash4(in_dict):
 
     if do_topo:
         # topography
-        tfn = (Ldir['data'] / 'topo' / 'srtm15plus' / 'topo.nc')
+        tfn = (Ldir['data'] / 'topo' / 'srtm15' / 'topo15.nc')
         tds = xr.open_dataset(tfn)
         step = 1
         tx = tds['lon'][::step].values
@@ -1619,13 +1451,10 @@ def P_splash4(in_dict):
     fs2 = fs*.9
     fs3 = fs*.8
     
-    if no_text:
-        pass
-    else:
-        ax.text(-123.072,46.7866,'Washington', size=fs2,
-            style='italic',ha='center',va='center',rotation=-45)
-        ax.text(-122.996,44.5788,'Oregon', size=fs2,
-            style='italic',ha='center',va='center',rotation=-45)
+    ax.text(-123.072,46.7866,'Washington', size=fs2,
+        style='italic',ha='center',va='center',rotation=-45)
+    ax.text(-122.996,44.5788,'Oregon', size=fs2,
+        style='italic',ha='center',va='center',rotation=-45)
     
     ah = ax.text(-125.3,49.4768,'Vancouver\nIsland', size=fs2,
         style='italic',ha='center',va='center',rotation=-45)
@@ -1672,9 +1501,6 @@ def P_splash_sneaker(in_dict):
     Run as:
     run pan_plot.py -0 2019.01.18 -gtx cas6_v0_live -pt P_splash_sneaker
     """
-    
-    no_text = True # a flag to turn off all text additions, for the Japanese version
-    
     # START
     fs = 14
     pfun.start_plot(fs=fs, figsize=(15,12))
@@ -1699,7 +1525,7 @@ def P_splash_sneaker(in_dict):
 
     if do_topo:
         # topography
-        tfn = (Ldir['data'] / 'topo' / 'srtm15plus' / 'topo.nc')
+        tfn = (Ldir['data'] / 'topo' / 'srtm15' / 'topo15.nc')
         tds = xr.open_dataset(tfn)
         step = 1
         tx = tds['lon'][::step].values
@@ -1728,18 +1554,15 @@ def P_splash_sneaker(in_dict):
     ax.axis([-130, -122, 42, 52])
     ax.set_xticks([-129, -127, -125, -123])
     ax.set_yticks([42, 44, 46, 48, 50, 52])
-    if no_text:
-        pass
-    else:
-        ax.set_xlabel('Longitude')
-        ax.set_ylabel('Latitude')
-        tstr = T['dt'].strftime(Lfun.ds_fmt)
-        ax.text(.98,.99,'Initial release\nlocations', size=fs*1.5,
-             ha='right', va='top', weight='bold', transform=ax.transAxes,
-             bbox=dict(facecolor='w', edgecolor='None',alpha=.5))
-        ax.text(.17,.05,'LiveOcean\nSurface water\nTemperature $[^{\circ}C]$\n\n'+tstr,
-             ha='left', va='bottom', weight='bold', transform=ax.transAxes,
-             bbox=dict(facecolor='w', edgecolor='None',alpha=.5))
+    ax.set_xlabel('Longitude')
+    ax.set_ylabel('Latitude')
+    tstr = T['dt'].strftime(Lfun.ds_fmt)
+    ax.text(.98,.99,'Initial release\nlocations', size=fs*1.5,
+         ha='right', va='top', weight='bold', transform=ax.transAxes,
+         bbox=dict(facecolor='w', edgecolor='None',alpha=.5))
+    ax.text(.17,.05,'LiveOcean\nSurface water\nTemperature $[^{\circ}C]$\n\n'+tstr,
+         ha='left', va='bottom', weight='bold', transform=ax.transAxes,
+         bbox=dict(facecolor='w', edgecolor='None',alpha=.5))
 
     # box for drifter release
     aa = [-125.8, -122.2, 46.3, 51]
@@ -1750,18 +1573,15 @@ def P_splash_sneaker(in_dict):
     fs2 = fs*.9
     fs3 = fs*.8
     
-    if no_text:
-        pass
-    else:
-        ax.text(-123.072,46.7866,'Washington', size=fs2,
-            style='italic',ha='center',va='center',rotation=-45)
-        ax.text(-122.996,44.5788,'Oregon', size=fs2,
-            style='italic',ha='center',va='center',rotation=-45)
+    ax.text(-123.072,46.7866,'Washington', size=fs2,
+        style='italic',ha='center',va='center',rotation=-45)
+    ax.text(-122.996,44.5788,'Oregon', size=fs2,
+        style='italic',ha='center',va='center',rotation=-45)
     
-        ah = ax.text(-125.3,49.4768,'Vancouver\nIsland', size=fs2,
-            style='italic',ha='center',va='center',rotation=-45)
-        ax.text(-126.3,50.2,'Johnstone\nStrait', size=.7*fs2,
-            style='italic',ha='center',va='center',rotation=-10)
+    ah = ax.text(-125.3,49.4768,'Vancouver\nIsland', size=fs2,
+        style='italic',ha='center',va='center',rotation=-45)
+    ax.text(-126.3,50.2,'Johnstone\nStrait', size=.7*fs2,
+        style='italic',ha='center',va='center',rotation=-10)
         
     # add drifter tracks
     ax.plot(dx[0,:],dy[0,:],'.k', ms=1, alpha=.5)
@@ -1783,13 +1603,10 @@ def P_splash_sneaker(in_dict):
     ax.axis(aa)
     ax.set_xticks([-125, -124, -123])
     ax.set_yticks([47, 48, 49, 50])
-    if no_text:
-        pass
-    else:
-        ax.set_xlabel('Longitude')
-        ax.text(.98,.99,'Locations after\nthree days', size=fs*1.5, c='k',
-             ha='right', va='top', weight='bold', transform=ax.transAxes,
-             bbox=dict(facecolor='w', edgecolor='None',alpha=.5))
+    ax.set_xlabel('Longitude')
+    ax.text(.98,.99,'Locations after\nthree days', size=fs*1.5, c='k',
+         ha='right', va='top', weight='bold', transform=ax.transAxes,
+         bbox=dict(facecolor='w', edgecolor='None',alpha=.5))
          
     # add drifter tracks
     # ax.plot(dx, dy, '-k', lw=.5, alpha=.5)
